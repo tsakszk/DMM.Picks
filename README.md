@@ -1,12 +1,10 @@
-# README
-
 # アプリ名
 DMM.Picks
 ## サイト概要
 ニュースアプリのクローン
 
 ### サイトテーマ
-ソーシャル経済メディア
+ソーシャルニュースメディア
 
 ### テーマを選んだ理由
 ・興味がある分野
@@ -21,4 +19,4 @@ DMM.Picks
 ## 設計書
 
 ### 機能一覧
-https://docs.google.com/spreadsheets/d/1oEf6q-z28zhXg25ljzH_-IjCKR072xQOzE0KN8TYh28/edit#gid=1327224690# DMM.Picks
+https://docs.google.com/spreadsheets/d/1oEf6q-z28zhXg25ljzH_-IjCKR072xQOzE0KN8TYh28/edit#gid=1327224690
