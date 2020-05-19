@@ -17,7 +17,7 @@
 XTCの「X」に因んで、ecstasy、explorer、expoldeなどなど、e（X）で始まるkeywordをX（10）個に絞ってお届け。
 
 ### サイトテーマ
-*RSSサイト*
+_RSSサイト_  
 
 # 実装機能
 
