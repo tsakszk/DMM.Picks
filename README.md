@@ -66,6 +66,5 @@ AIを活用して記事やコメントに対して信憑度チェックや、ポ
 
 ## 設計書
 
-
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1oEf6q-z28zhXg25ljzH_-IjCKR072xQOzE0KN8TYh28/edit#gid=1327224690>
