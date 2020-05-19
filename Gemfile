@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.7'
+# bootstrap
+gem "sass-rails", "~>5.0"
+gem "bootstrap-sass", "~>3.3.6"
+gem "jquery-rails"
+gem "jquery-ui-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
@@ -36,10 +41,18 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Pry(byebug)
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'rspec-rails', '~> 3.6' #Rspecの導入
+  gem 'spring-commands-rspec' #Spring を使った RSpec の導入
 end
+# cronで管理
+gem 'whenever', require: false #wheneverの導入
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -48,6 +61,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop-airbnb' # Rubocop Airbnbの導入
 end
 
 group :test do
@@ -60,3 +74,19 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# デバイス機能
+gem 'devise'
+
+# 検索機能
+gem 'ransack'
+
+# 画像投稿機能
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+# スクレイピング
+# gem 'nokogiri'
+# スライドショー
+gem 'bxslider-rails'
+gem 'jquery-rails'    #rails5はこれを入れないとjQueryが動きません
