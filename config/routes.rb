@@ -1,24 +1,14 @@
 Rails.application.routes.draw do
-  get 'abouts/new'
-  get 'abouts/create'
-  get 'articles/index'
-  get 'articles/show'
-  get 'articles/new'
-  get 'articles/create'
-  get 'articles/edit'
-  get 'articles/update'
-  get 'favorites/follows'
-  get 'favorites/create'
-  get 'favorites/destroy'
-  get 'favorites/followers'
-  get 'favorites/index'
-  get 'favorites/list'
-  get 'picks/show'
-  get 'users/top'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/destroy'
-  get 'users/index'
-  get 'users/create'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+
 end
