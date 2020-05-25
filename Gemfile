@@ -3,11 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.7'
 # bootstrap
-gem "sass-rails", "~>5.0"
-gem "bootstrap-sass", "~>3.4.1"
-gem "jquery-rails"
+gem 'bootstrap-sass', '~> 3.3.6'
+gem "jquery-rails" #bxslider-rails(スライドショー)をrails5で使うにはこれを入れないとjQueryが動きません,
 gem "jquery-ui-rails"
-
+# kaminari
+gem 'kaminari', '~> 1.1.1'
+# faker
+gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 # Use sqlite3 as the database for Active Record
@@ -69,7 +71,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -85,8 +87,10 @@ gem 'ransack'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-# スクレイピング
-# gem 'nokogiri'
 # スライドショー
 gem 'bxslider-rails'
-gem 'jquery-rails'    #rails5はこれを入れないとjQueryが動きません
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
