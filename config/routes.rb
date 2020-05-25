@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get 'categorys/edit'
     get 'categorys/update'
   end
+
   namespace :admins do
     get 'hamburgers/index'
     get 'hamburgers/create'
