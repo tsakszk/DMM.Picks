@@ -1,4 +1,4 @@
-class Admins::HamburgersController < ApplicationController
+class Admin::HamburgersController < ApplicationController
   def index
   end
 
