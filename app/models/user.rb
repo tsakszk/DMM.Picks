@@ -10,5 +10,5 @@ class User < ApplicationRecord
   enum rate: {
        men: 1,
        women: 2
-  }#カラム名   #定義対象の内容のマッピング(名前: 数値)
+  }#カラム名   #定義対象の内容のマッピング{名前: 数値}
 end
