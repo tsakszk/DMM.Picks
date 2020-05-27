@@ -1,44 +1,4 @@
 Rails.application.routes.draw do
-
-  namespace :admins do
-    get 'articles/index'
-    get 'articles/create'
-    get 'articles/edit'
-    get 'articles/update'
-    get 'articles/show'
-    get 'articles/new'
-  end
-  namespace :admins do
-    get 'categorys/index'
-    get 'categorys/create'
-    get 'categorys/edit'
-    get 'categorys/update'
-  end
-
-  namespace :admins do
-    get 'hamburgers/index'
-    get 'hamburgers/create'
-    get 'hamburgers/edit'
-    get 'hamburgers/update'
-  end
-  namespace :admins do
-    get 'abouts/top'
-    get 'abouts/index'
-    get 'abouts/show'
-    get 'abouts/update'
-  end
-  namespace :admins do
-    get 'users/top'
-    get 'users/index'
-    get 'users/edit'
-    get 'users/update'
-  end
-  namespace :admin do
-    get 'users/top'
-    get 'users/index'
-    get 'users/edit'
-    get 'users/update'
-  end
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -49,5 +9,27 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+
+  root 'public/users#top'
+  get 'list', to: 'public/favorietes#list'
+  get 'follows', to: 'public/favorietes#follows'
+  get 'followers', to: 'public/favorietes#followers'
+
+  namespace :public do
+    resources :abouts, only: [:create, :new]
+    resources :articles, only: [:index, :show, :update, :create, :edit, :new]
+    resources :favorietes, only: [:create, :destroy, :index]
+    resources :picks, only: [:show]
+    resources :users, only: [:index, :update, :edit, :destroy, :create]
+  end
+
+  get 'top', to: 'admin/users#top'
+  namespace :admin do
+    resources :abouts, only: [:index, :show, :update]
+    resources :articles, only: [:index, :show, :update, :create, :edit, :new]
+    resources :categorys, only: [:index, :update, :create, :edit]
+    resources :humburgers, only: [:index, :update, :create, :edit]
+    resources :users, only: [:index, :update, :edit]
+  end
 
 end
