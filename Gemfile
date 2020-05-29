@@ -7,9 +7,9 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem "jquery-rails" #bxslider-rails(スライドショー)をrails5で使うにはこれを入れないと動かない
 gem "jquery-ui-rails"
 # kaminari
-gem 'kaminari', '~> 1.2.1'
+# gem 'kaminari', '~> 1.2.1'
 # faker
-gem 'faker'
+# gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 # Use sqlite3 as the database for Active Record
