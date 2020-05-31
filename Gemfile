@@ -8,8 +8,7 @@ gem "jquery-rails" #bxslider-rails(スライドショー)をrails5で使うに�
 gem "jquery-ui-rails"
 # kaminari
 # gem 'kaminari', '~> 1.2.1'
-# faker
-# gem 'faker'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 # Use sqlite3 as the database for Active Record
@@ -50,7 +49,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'rspec-rails', '~> 3.6' #Rspecの導入
   gem 'spring-commands-rspec' #Spring を使った RSpec の導入
 end
 # cronで管理
@@ -67,11 +65,10 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'webdrivers'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -96,3 +93,4 @@ group :production do
   gem 'mysql2'
 end
 
+gem 'font-awesome-sass', '~> 5.4.1'

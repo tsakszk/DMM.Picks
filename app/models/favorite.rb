@@ -1,4 +1,4 @@
-class Relationship < ApplicationRecord
-    belongs_to :follower, class_name: "User"
-    belongs_to :followed, class_name: "User"
+class Favorite < ApplicationRecord
+    belongs_to :user
+    belongs_to :book
 end
