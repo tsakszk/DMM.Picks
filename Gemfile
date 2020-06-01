@@ -78,7 +78,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 # 検索機能
-gem 'ransack'
+# gem 'ransack'
 
 # 画像投稿機能
 gem "refile", require: "refile/rails", github: 'manfe/refile'
