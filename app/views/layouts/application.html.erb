@@ -37,11 +37,10 @@
     <br>
     <div class="text-center">
       <% if user_signed_in? %>
-
         <%= form_tag(searches_search_path,:method => 'get') do %>
         <%= text_field_tag :search %>
-        <%= select_tag(:option, options_for_select([["user", "1"],["post","2"]]))%>
-        <%= select_tag(:option, options_for_select([["完全一致", "1"],["前方一致","2"],["後方一致","3"],["部分一致","4"]]))%>
+        <%= select_tag(:option1, options_for_select([["user", "1"],["post","2"]]))%>
+        <%= select_tag(:option2, options_for_select([["完全一致", "1"],["前方一致","2"],["後方一致","3"],["部分一致","4"]]))%>
         <%= submit_tag '検索' %>
         <% end %>
       <% end %>
