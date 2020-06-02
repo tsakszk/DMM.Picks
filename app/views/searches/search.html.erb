@@ -1,46 +1,24 @@
-<h1>Searches#search</h1>
-<p>Find me in app/views/searches/search.html.erb</p>
-<%= form_tag(searches_search_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
+<table class="table table-hover table-inverse">
+	<thead>
+		<tr>
+			<th>Image</th>
+			<th>Post</th>
+			<th></th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <%= submit_tag 'Search' %>
-<% end %>
-
-		<table class="table table-hover table-inverse">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Title</th>
-					<th>Opinion</th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @books.each do |book| %>
-				<tr>
-					<td>
-						<%= link_to(book.user) do %>
-						<%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
-						<% end %>
-					</td>
-					<td><%= link_to book.title, book, class: "book_#{book.id}" %></td>
-					<td><%= book.body %></td>
-					<td>
-						<% if book.favorited_by?(current_user) %>
-							<%= link_to book_favorites_path(book), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-							<%= book.favorites.count %>
-							<% end %>
-						<% else %>
-							<%= link_to book_favorites_path(book), method: :post do %>
-							<i class="fa fa-heart" aria-hidden="true"></i>
-							<%= book.favorites.count %>
-							<% end %>
-						<% end %>
-					</td>
-					<td><%= "コメント数：#{book.book_comments.count} " %> </td>
-				</tr>
+	<tbody>
+		<% @books.each do |book| %>
+		<tr>
+			<td>
+				<%= link_to(book.user) do %>
+				<%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
 				<% end %>
-			</tbody>
-		</table>
+			</td>
+			<td><%= link_to book.body, book, class: "book_#{book.id}" %></td>
+			<td><%= link_to "Show", user_path(book) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
