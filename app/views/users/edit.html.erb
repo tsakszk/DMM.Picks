@@ -20,6 +20,7 @@
 
 <div class="field">
 	<%= f.label :image %>
+    <p><%= attachment_image_tag @user, :profile_image,format: 'jpg', fallback: "logo.png", size:'300x400' %></p>
 	<%= f.attachment_field :profile_image, class: "user_image" %>
 </div>
 
@@ -29,7 +30,7 @@
 </div>
 
 <div class="actions">
-	<%= f.submit %>
+	<%= f.submit class: "btn btn-primary" %>
 </div>
 
 <% end %>
