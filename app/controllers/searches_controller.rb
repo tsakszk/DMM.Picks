@@ -14,11 +14,8 @@ class SearchesController < ApplicationController
         end
       else
         # postに対しての検索
-        # モデルクラス.where( "列名 LIKE ? AND 列名 LIKE ? ", "条件1", "条件2")
-        # 適切なオブジェクト名.where(['検索したいカラム名 ? OR 検索したいカラム名 LIKE ? OR 検索したいカラム名 LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
-      params[:option1] == '2'
         if params[:option2] == '1'
-          @books = Book.where(title: params[:search],body: params[:search]) #完全一致
+          @books = Book.where('body = ? OR title = ? ', params[:search],params[:search] ) #完全一致
         elsif params[:option2] == '2'
           @books = Book.where(['title LIKE ? AND body LIKE ?', "#{params[:search]}%","#{params[:search]}%"]) #前方一致
         elsif params[:option2] == '3'
@@ -28,7 +25,7 @@ class SearchesController < ApplicationController
         end
       end
     else
-      @books = Book.all
+      # @books = Book.all
     end
   end
 end
