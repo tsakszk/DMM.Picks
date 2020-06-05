@@ -19,13 +19,4 @@
 //= require bxslider
 //= require jquery_ujs
 
-$(document).ready(function () {
-	$('.jquery').on('click', function(){
-		$(this).css('color','red');
-	});
-});
-
-// $('.セレクタ名').イベント名(function(){
-//      イベント発生時に行われる処理
-// });
 
