@@ -35,7 +35,7 @@
 			</thead>
 
 			<tbody>
-				<% @books.each do |book| %>
+				<% @books.last(7).each do |book| %>
 				<tr>
 					<td>
 						<%= link_to(book.user) do %>
@@ -64,8 +64,9 @@
 				<% end %>
 			</tbody>
 		</table>
-
 		<!--books一覧 -->
-
+        <div class="text-center">
+		<%= paginate @kaminari %>
+		</div>
 	</div>
 </div>

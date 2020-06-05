@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   def show
 	   @book = Book.find(params[:id])
 	   @newbook = Book.new
@@ -9,6 +10,7 @@ class BooksController < ApplicationController
 	@book = Book.new
 	@books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
 	@user = User.find(current_user.id)
+	@kaminari = Book.page(params[:page]).per(7)
   end
 
   def create
@@ -47,7 +49,6 @@ class BooksController < ApplicationController
   end
 
   private
-
   def book_params
   	params.require(:book).permit(:title, :body)
   end
