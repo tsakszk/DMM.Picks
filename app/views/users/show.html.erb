@@ -43,7 +43,9 @@
 							<% end %>
 						<% end %>
 					</td>
-					<td><%= "コメント数：#{book.book_comments.count} " %> </td>
+					<td><%= "#{book.book_comments.count} " %>
+					<i class="far fa-comment-dots"></i>
+					</td>
 				</tr>
 				<% end %>
 			</tbody>

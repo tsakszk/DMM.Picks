@@ -1,6 +1,6 @@
 <% if @users.present? %>
 	<table class="table table-hover table-inverse">
-    <h2> Users search for  </h2>
+    <h2> Users search for "<%= params[:search] %>" </h2>
 		<thead>
 			<tr>
 				<th>Image</th>
@@ -22,7 +22,7 @@
 	</table>
 <% elsif @books.present? %>
 	<table class="table table-hover table-inverse">
-    <h2>Books search for </h2>
+    <h2>Books search for "<%= params[:search] %>" </h2>
 		<thead>
 			<tr>
 				<th>Image</th>
@@ -45,5 +45,5 @@
 		</tbody>
 	</table>
 <% else %>
-    <h2>Do not get caught in the search</h2>
+    <h2>Could not find  "<%= params[:search] %>" </h2>
 <% end %>

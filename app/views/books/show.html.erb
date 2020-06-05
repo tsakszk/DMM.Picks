@@ -51,7 +51,7 @@
 				</td>
 				<% if @book.user_id == current_user.id %>
 				<td><%= link_to "Edit",edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
-				<td><%= link_to "Destroy",@book, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
+				<td><%= link_to "Destroy",@book, method: :delete, data: {confirm: "Are you sure you want to delete it?"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
 				<% end %>
 			</tr>
 		</table>
@@ -60,14 +60,14 @@
         <%= form_for [@book, @book_comment] do |f| %>
          <div class="row">
           <div class="col-sm-12">
-          <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメント" %>
+          <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "comment" %>
          </div>
          </div>
-          <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-5 pull-right" %>
+          <%= f.submit "Send", class: "btn btn-lg btn-base-1 mt-5 pull-right" %>
         <% end %><br><br><br>
 
 		          <!-- コメント一覧 -->
-		<h4><%= @book.book_comments.count %>件コメント</h4>
+		<h4><%= @book.book_comments.count %>comments</h4>
 
         <table class="table">
 			<thead>
