@@ -57,7 +57,7 @@
     <br>
     <% if user_signed_in? %>
      <div class="main-visual">
-            <form class="form">
+            <div class="form">
             <%= form_tag(searches_search_path,:method => 'get') do %>
             <%= text_field_tag :search, '', class: "search-input", placeholder: 'here you go'%>
             <%= select_tag(:option1, options_for_select([["User", "1"],["Book","2"]]))%>
@@ -65,10 +65,12 @@
             <%# 完全一致=Perfect matching, 前方一致=Prefix match　,後方一致=Backward match,　部分一致=Partial Match %>
             <%= submit_tag 'Search' %>
             <% end %>
-            </form>
+            </div>
      </div>
     <% end %>
-
+<br>
+<br>
+<br>
     <!--ヘッダーの記述-->
     <div class="container">
       <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
@@ -76,3 +78,4 @@
     </div>
   </body>
 </html>
+

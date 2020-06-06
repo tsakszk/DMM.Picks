@@ -8,9 +8,9 @@ class BooksController < ApplicationController
 
   def index
 	@book = Book.new
-	@books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
+	# @books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
 	@user = User.find(current_user.id)
-	@kaminari = Book.page(params[:page]).per(7)
+	@books = Book.all.page(params[:page]).per(7)
   end
 
   def create
