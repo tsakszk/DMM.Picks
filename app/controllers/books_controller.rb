@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 	@book = Book.new
 	# @books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
 	@user = User.find(current_user.id)
-	@books = Book.all.page(params[:page]).per(7)
+	@books = Book.all.page(params[:page]).per(7).order(created_at: :desc) #:asc古い :desc新しい
   end
 
   def create
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-  	params.require(:book).permit(:title, :body)
+  	params.require(:book).permit(:title, :body, :image)
   end
 
 end

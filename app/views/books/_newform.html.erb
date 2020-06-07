@@ -8,6 +8,12 @@
 		<%= f.label :Opinion %> <!-- ここを変更 -->
 		<%= f.text_area :body, placeholder: "Your opinion", class: "col-xs-12 book_body", rows: 4, class: "form-control" %>
 	</div>
+
+	<div class="field row">
+		<%= f.label :Image %> <!-- ここを変更 -->
+		<%= f.attachment_field :image %>
+	</div>
+
 	<div class="actions row">
 		<%= f.submit class: "btn btn-primary col-xs-12" %>
 	</div>
