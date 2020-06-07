@@ -28,6 +28,21 @@ body {
 	a:hover { color:rgb(255, 136, 0); text-decoration:none }
 }
 
+.opinion {
+	word-break: break-all;
+	width: 40%;
+}
+
+.book_comment {
+	word-break: break-all;
+	width: 40%;
+}
+
+.user_books_opinion {
+	word-break: break-all;
+	width: 40%;
+}
+
 .actions {
 	margin-top:10px;
 }
@@ -64,9 +79,10 @@ input[type="email"] {
 
 .main-visual {
     width: 100%;
-    height: 300px;
-	background-size:auto;
-	background-image: image-url("photo.png");
+    height: 350px;
+	background-size:cover;
+	background-position: center left;
+	background-image: image-url("header5.jpeg");
 	position: relative;
 }
 
@@ -95,3 +111,21 @@ input[type="email"] {
   .pagination>li>a:hover {
 	border-radius: 15px;    /*角を丸くする*/
   }
+
+img.attachment.book.image {
+	object-fit: contain;
+	width: 100px;
+	height: auto;
+}
+
+img.attachment.user.profile_image {
+	object-fit: contain;
+	width: 80px;
+	height: 80px;
+}
+
+img.attachment.user.profile_image.profile {
+	object-fit: contain;
+	width: 250px;
+	height: 250px;
+}

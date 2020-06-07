@@ -51,8 +51,6 @@ group :development, :test do
   gem 'pry-doc'
   gem 'spring-commands-rspec' #Spring を使った RSpec の導入
 end
-# cronで管理
-gem 'whenever', require: false #wheneverの導入
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -76,9 +74,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # デバイス機能
 gem 'devise'
-
-# 検索機能
-# gem 'ransack'
 
 # 画像投稿機能
 gem "refile", require: "refile/rails", github: 'manfe/refile'

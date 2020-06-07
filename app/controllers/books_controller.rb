@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 	@book = Book.new
 	# @books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
 	@user = User.find(current_user.id)
-	@books = Book.all.page(params[:page]).per(7).order(created_at: :desc) #:asc古い :desc新しい
+	@books = Book.all.page(params[:page]).per(5).order(created_at: :desc) #:asc古い :desc新しい
   end
 
   def create
