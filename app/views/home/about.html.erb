@@ -1,17 +1,13 @@
+<br><br>
 <div class="row">
-	<div class="main col-xs-offset-3 col-xs-6">
-		<h1>Welcome to<span class="glyphicon glyphicon-book"></span>
-		<strong>Bookers</strong>  !!</h1>
+	<div class="main col-xs-4">
 		<h2>It is a video of easy usage!</h2>
+		<br>
+		<h3>Please push the "play button" in the lower right.</h3>
+		<br>
+		<h4>When you're done, sign up to start.</h4>
+	</div>
+    <div class="main col-xs-8">
+	    <%= video_tag("/assets/videos/video.mp4", :controls => true, style: "width:100%;") %>
 	</div>
 </div>
-
-<%# <video src="mov_hts-samp001.mp4" controls loop autoplay muted></video> %>
-<%# <%= video_tag("mov_hts-samp001.mp4", :autoplay => true, :loop => true, muted: => true ) %>
-<%= video_tag("/assets/videos/video.mp4", :controls => true, style: "width:100%;") %>
-<%# <%= video_tag("/assets/videos/mov_hts-samp001.mp4" :autoplay => true, :loop => true, muted: => true, style: "width:100%;") %>
-<%# <video controls loop autoplay width="1100px" height="550px">
-	<source src="../../assets/videos/mov_hts-samp001.mp4" >
-</video> %>
-
-<%# <video src="../../assets/videos/mov_hts-samp001.mp4" controls></video> %>

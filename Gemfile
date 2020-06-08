@@ -79,9 +79,6 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-# スライドショー
-gem 'bxslider-rails'
-
 # 環境変数,MySQL
 gem 'dotenv-rails'
 group :production do
