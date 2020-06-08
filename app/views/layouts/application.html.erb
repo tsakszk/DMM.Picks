@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> <%#消さない%>
   </head>
 
   <body>
@@ -30,7 +30,6 @@
         <nav>
           <ul id="navbar" class="nav navbar-nav navbar-right navbar-collapse collapse tab clearfix">
             <!--if文でサインインとアウト時の表示を変更-->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script>
               $(function(){
                 $("#navbar li").click(function(){
@@ -68,8 +67,7 @@
             </div>
      </div>
     <% end %>
-<br>
-<br>
+
     <!--ヘッダーの記述-->
     <div class="container">
       <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
