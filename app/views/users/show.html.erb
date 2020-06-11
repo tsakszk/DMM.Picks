@@ -1,14 +1,18 @@
-<div class="row">
-	<div class="col-xs-3">
+<div class="container">
+  <div class="row">
+	<div class="col-md-3 col-lg-3">
+		<div class="user_info">
 		<h2>User info</h2>
 		<%= render 'users/profile', user: current_user %>
+		</div>
 		<!--同コントローラーのviewで表示ならusersは省略可 -->
-
+		<div class="new_book">
 		<h2>New book</h2>
 		<%= render 'books/newform', book: @book %>
-　　 </div>
-	<div class="col-xs-9">
-		<h2>Books</h2>
+		</div>
+	</div>
+	<div class="col-md-9 col-lg-9">
+	<h3><%= attachment_image_tag @user, :profile_image, fallback: "no-image-mini.jpg"%> <%= @user.name %>'s Books</h3>
 		<!--books一覧 -->
 		<table class="table table-hover table-inverse">
 			<thead>
@@ -18,18 +22,17 @@
 					<th>Opinion</th>
 				</tr>
 			</thead>
-
 			<tbody>
 				<% @books.order(created_at: :desc).each do |book| %>
 				<tr>
 					<td>
-					    <%= link_to book, class: "book_#{book.id}" do %>
+						<%= link_to book, class: "book_#{book.id}" do %>
 						<%= attachment_image_tag book, :image, fallback: "no-image-mini.jpg" %>
-					    <% end %>
+						<% end %>
 					</td>
 					<td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
-					<td class="user_books_opinion"><%= book.body %></td>
-					<td>
+					<td class="book_comment"><%= book.body %></td>
+					<td class="display3">
 						<% if book.favorited_by?(current_user) %>
 							<%= link_to book_favorites_path(book), method: :delete do %>
 							<i class="fa fa-heart" aria-hidden="true" style="color: green;"></i>
@@ -42,7 +45,7 @@
 							<% end %>
 						<% end %>
 					</td>
-					<td><%= "#{book.book_comments.count} " %>
+					<td class="display4"><%= "#{book.book_comments.count} " %>
 					<i class="far fa-comment-dots"></i>
 					</td>
 				</tr>
@@ -50,6 +53,7 @@
 			</tbody>
 		</table>
 	</div>
+  </div>
 </div>
 <!--books一覧 -->
 

@@ -1,7 +1,3 @@
-<div class="row">
-<div class="col-md-6 col-md-offset-3">
-
-<h1>Editing Book</h1>
 <!-- エラーメッセージ表示-->
 <% if @book.errors.any? %>
 	<p><%= @book.errors.count %>error occurrence</p><!--エラーメッセ-->
@@ -12,11 +8,14 @@
 	</ul>
 <% end %>
 <!-- エラーメッセージ表示-->
-<%= render "books/newform", book: @book %>
-<%= link_to "Show", @book, class: "book_#{@book.id}" %>
-<%= link_to "Back", books_path, class: "back" %>
 
-</div>
-<div class="col-md-3"></div>
-
+<div class="container">
+  <div class="row">
+	<div class="main col-md-12 col-lg-12">
+		<h1>Editing Book</h1>
+		<%= render "books/newform", book: @book %>
+		<%= link_to "Show", @book, class: "book_#{@book.id}" %>
+		<%= link_to "Back", books_path, class: "back" %>
+	</div>
+  </div>
 </div>

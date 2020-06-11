@@ -18,28 +18,22 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-header .navbar-header h2 {
-	color:white;
-}
-
 body {
 	a:link {color:black; text-decoration:none }
 	a:visited { color:black; text-decoration:none }
 	a:hover { color:rgb(255, 136, 0); text-decoration:none }
+    background-image :image-url("rocky-wall.png");
+	opacity: 1.2;
+	position: relative;
 }
 
 .opinion {
-	word-break: break-all;
+	word-break: break-all; //投稿記事に対する文の改行
 	width: 40%;
 }
 
 .book_comment {
-	word-break: break-all;
-	width: 40%;
-}
-
-.user_books_opinion {
-	word-break: break-all;
+	word-break: break-all;  //投稿記事に対する文の改行
 	width: 40%;
 }
 
@@ -51,33 +45,34 @@ body {
 	margin: 0 10px -1px 0;
 	padding: 10px 20px;
 	list-style: none;
-	transition: .3s;
 }
-.tab li.active {
+
+input[type="password"] { //deviseのフォームの幅調整
+	width: 280px;
+	height: 30px;
+}
+
+input[type="email"] {  //deviseのフォームの幅調整
+	width: 280px;
+	height: 30px;
+}
+
+.navbar {
 	color:white;
-	// background: white;
-	cursor: auto;
 }
 
-input[type="password"] {
-	width: 280px;
-	height: 30px;
+.navbar-nav {
+    margin: 7.5px 30px;
 }
 
-input[type="email"] {
-	width: 280px;
-	height: 30px;
+#navbar a.selected {  //ナビバーのリンク時の色調整
+	background-color:rgb(204, 207, 207);
+	text-decoration: none;
 }
-
-#navbar li {
-	background-color: transparent; /* default value */
+#navber a:visited {
+	text-decoration: none;
 }
-
-#navbar li.selected {
-	background-color:rgb(40, 43, 44);
-}
-
-.main-visual {
+.main-visual {  //検索フォーム下の画像
     width: 100%;
     height: 350px;
 	background-size:cover;
@@ -86,48 +81,102 @@ input[type="email"] {
 	position: relative;
 }
 
-.form {
+.form { //検索フォーム
 	position: absolute;
 	top: 50%;
-	left: 80%;
 	font-size: 20px;
 	color:black;
+	right:5px;
 }
 
-// kaminari
-/*ページネーション自体のデザイン*/
-.pagination>li>a {
-	border: none;     /*枠線をなくす*/
-	color: #696969;   /*文字の色を変える*/
-  }
+//kaminari
+	//ページネーション自体のデザイン
+	.pagination>li>a {
+		border: none;   //枠線をなくす
+		color: #696969;
+	}
 
-  /* 表示しているページ番号のデザイン */
-  .pagination>.active>a {
-	background: #0c8af1;     /*背景の色を変える*/
-	border-radius: 15px;     /*角を丸くする*/
-  }
+	//表示しているページ番号のデザイン
+	.pagination>.active>a {
+		background:blue;
+		border-radius: 15px;  //角を丸くする
+	}
 
-  /*ホバー時のデザイン*/
-  .pagination>li>a:hover {
-	border-radius: 15px;    /*角を丸くする*/
-  }
+	//ホバー時のデザイン
+	.pagination>li>a:hover {
+		border-radius: 15px;  //角を丸くする
+	}
 
+//本のイメージ画像
 img.attachment.book.image {
 	object-fit: contain;
 	width: 100px;
 	height: auto;
 }
 
+//Userのイメージ画像
 img.attachment.user.profile_image {
 	object-fit: contain;
 	width: 80px;
 	height: 80px;
 }
 
+//Userのプロフィールイメージ画像
 img.attachment.user.profile_image.profile {
 	object-fit: contain;
 	width: 250px;
 	height: 250px;
 }
 
-// @import"jquery.bxslider";
+footer{  //検索フォーム下の画像
+    width: 100%;
+    height: 70px;
+	background-size:cover;
+	background-position: center;
+	position: relative;
+}
+
+@media screen and (max-width: 481px) {
+	.display1{display: none;}
+	.display2{display: none;}
+	.book_comment{
+		display: block;
+		width: 100px;
+		height: 150px;
+		overflow: hidden;
+	}
+	.book_title{display: none;}
+	.book_body{display: none;}
+	.favorites{display: none;}
+	.favorites_comment{display: none;}
+}
+
+@media screen and (max-width: 414px) {
+	.display1{display: block;}
+	.display2{display: none;}
+	.display3{display: none;}
+    .display4{display: none;}
+	.book_comment{
+		display: block;
+		width: 100px;
+		height: 150px;
+		overflow: hidden;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.display3{font-size: 10px;}
+	.display4{font-size: 10px;}
+}
+
+@media screen and (max-width: 767px) {
+	.user_info{display: none;}
+	.user_info_books{display: none;}
+}
+
+table, th {
+    border-bottom: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}

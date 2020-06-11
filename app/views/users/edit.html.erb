@@ -1,31 +1,33 @@
-<h2>User info</h2>
+<div class="container">
+  <div class="row">
+	<div class="col-md-12 col-lg-12">
+		<h2>User info</h2>
+		<%= form_for(@user) do |f| %>
+			<!-- エラーメッセージ表示-->
+			<% if @user.errors.any? %>
+				<p><%= @user.errors.count %>error occurrence</p><!--エラーメッセ-->
+				<ul>
+					<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			<% end %>
 
-<%= form_for(@user) do |f| %>
+			<div class="field">
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "name" %>
+			</div>
 
-<!-- エラーメッセージ表示-->
-<% if @user.errors.any? %>
-	<p><%= @user.errors.count %>error occurrence</p><!--エラーメッセ-->
-	<ul>
-		<% @user.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
+			<div class="field">
+				<%= f.label :image %>
+				<p><%= attachment_image_tag @user, :profile_image,format: 'jpg', fallback: "logo.png", size:'500x600' %></p>
+				<%= f.attachment_field :profile_image, class: "user_image" %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit class: "btn btn-primary" %>
+			</div>
 		<% end %>
-	</ul>
-<% end %>
-<!-- エラーメッセージ表示-->
-
-<div class="field">
-	<%= f.label :name %>
-	<%= f.text_field :name, class: "name" %>
+    </div>
+  </div>
 </div>
-
-<div class="field">
-	<%= f.label :image %>
-    <p><%= attachment_image_tag @user, :profile_image,format: 'jpg', fallback: "logo.png", size:'500x600' %></p>
-	<%= f.attachment_field :profile_image, class: "user_image" %>
-</div>
-
-<div class="actions">
-	<%= f.submit class: "btn btn-primary" %>
-</div>
-
-<% end %>
