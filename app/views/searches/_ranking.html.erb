@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-lg-6">
+			<h3 class= "user_ranking"><strong>User Ranking</strong></h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>Name</th>
+						<th><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @all_user_ranks.each do |user| %>
+					<tr>
+						<td><%= attachment_image_tag(user, :profile_image, fallback: "no-image-mini.jpg") %></td>
+						<td><%= link_to user.name,user_path(user.id) %></td>
+						<td><%= user.favorites.count %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-md-6 col-lg-6">
+			<h3 class= "book_ranking"><strong>Book Ranking</strong></h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Book</th>
+							<th>Title</th>
+							<th><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @all_book_ranks.each do |book| %>
+						<tr>
+							<td><%= attachment_image_tag(book, :image, fallback: "no-image-mini.jpg") %></td>
+							<td><%= link_to book.title,book_path(book.id) %></td>
+							<td><%= book.favorites.count %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>

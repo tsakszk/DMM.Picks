@@ -25,13 +25,13 @@
 
 	<div class="col-md-9 col-lg-9">
 		<h2>Book detail</h2>
-		<table class="table">
+		<table class="table table-hover table-inverse">
 			<tr>
 				<td>
 				<%= attachment_image_tag @book, :image,fallback: "no-image-mini.jpg" %>
 				</td>
 				<td class="book_title"><%= link_to @book.title, @book %></td>
-				<td class="book_body"><%= @book.body %></td>
+				<td class="book_comment"><%= @book.body %></td>
 				<td class="favorites">
 					<% if @book.favorited_by?(current_user) %>
 						<%= link_to book_favorites_path(@book), method: :delete do %>
@@ -45,7 +45,7 @@
 						<% end %>
 					<% end %>
 				</td>
-				<td class="favorites_comment"><%= "コメント数：#{@book.book_comments.count}" %></td>
+				<td class="favorites_comment"><%= "#{@book.book_comments.count}" %><i class="far fa-comment-dots"></i></td>
 				</>
 				<% if @book.user_id == current_user.id %>
 				<td><%= link_to "Edit",edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
@@ -65,7 +65,7 @@
 
 		 <!-- コメント一覧 -->
 		<h4><%= @book.book_comments.count %>comments</h4>
-        <table class="table">
+        <table class="table table-hover table-inverse">
 			<thead>
 				<tr>
 					<th>name</th>
@@ -86,7 +86,7 @@
                 </tr>
 			  <% end %>
             </tbody>
-		</div>
+		</table>
 	</div>
   </div>
 </div>

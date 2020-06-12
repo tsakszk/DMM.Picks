@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   	# @users = User.all #一覧表示するためにUserモデルのデータを全て変数に入れて取り出す。
 	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
 	@users = User.all.page(params[:page]).per(7).order(created_at: :desc) #:asc古い :desc新しい
+	@all_user_ranks = User.find(Favorite.group(:user_id).order('count(user_id) desc').limit(5).pluck(:user_id))
+	@all_book_ranks = Book.find(Favorite.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id))
   end
 
   def edit

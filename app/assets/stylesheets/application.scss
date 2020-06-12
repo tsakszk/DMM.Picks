@@ -89,16 +89,34 @@ input[type="email"] {  //deviseのフォームの幅調整
 	right:5px;
 }
 
+.user_ranking {
+	text-align: center;
+	background-color:black;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+    color:whitesmoke;
+}
+
+.book_ranking{
+	text-align: center;
+	background-color:black;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	color:whitesmoke;
+}
+
 //kaminari
 	//ページネーション自体のデザイン
 	.pagination>li>a {
 		border: none;   //枠線をなくす
-		color: #696969;
+		color:forestgreen;
 	}
 
 	//表示しているページ番号のデザイン
 	.pagination>.active>a {
-		background:blue;
+		background:forestgreen;
 		border-radius: 15px;  //角を丸くする
 	}
 
@@ -111,30 +129,30 @@ input[type="email"] {  //deviseのフォームの幅調整
 img.attachment.book.image {
 	object-fit: contain;
 	width: 100px;
-	height: auto;
+	height: 130px;
 }
 
 //Userのイメージ画像
 img.attachment.user.profile_image {
 	object-fit: contain;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 130px;
 }
 
 //Userのプロフィールイメージ画像
 img.attachment.user.profile_image.profile {
 	object-fit: contain;
-	width: 250px;
-	height: 250px;
+	width: 100px;
+	height: 130px;
 }
 
-footer{  //検索フォーム下の画像
-    width: 100%;
-    height: 70px;
-	background-size:cover;
-	background-position: center;
-	position: relative;
-}
+// footer{  //検索フォーム下の画像
+//     width: 100%;
+//     height: 70px;
+// 	background-size:cover;
+// 	background-position: center;
+// 	position: relative;
+// }
 
 @media screen and (max-width: 481px) {
 	.display1{display: none;}
@@ -175,7 +193,7 @@ footer{  //検索フォーム下の画像
 }
 
 table, th {
-    border-bottom: 1px solid black;
+    border-bottom: 0.1px solid ;
 }
 table {
     border-collapse: collapse;

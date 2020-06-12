@@ -14,7 +14,7 @@
 	<div class="col-md-9 col-lg-9">
 		<h2>Users</h2>
 		<!--users一覧 -->
-		<table class="table">
+		<table class="table table-hover table-inverse">
 			<thead>
 				<tr>
 					<th>User</th>
@@ -25,7 +25,6 @@
 					<th class="display4"></th>
 				</tr>
 			</thead>
-
 			<tbody>
 				<% @users.each do |user| %>
 				<tr>
@@ -55,10 +54,11 @@
 				<% end %>
 			</tbody>
 		</table>
-        <div class="text-center">
-		<%= paginate @users %>
-		</div>
 	</div>
   </div>
 </div>
-<!--users一覧 -->
+
+<!--user ページネーション  -->
+<div class="text-center"><%= paginate @users %></div>
+
+<%= render 'searches/ranking', user: current_user %>

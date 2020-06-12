@@ -1,34 +1,34 @@
-		<table class="table">
-				<tr>
-					<%= link_to user_path(current_user) do%>
-					<%= attachment_image_tag(user, :profile_image, fallback: "no_image.jpg", class:"profile" ) %>
-					<% end %>
-				</tr>
-				<tr>
-					<th>Name</th>
-					<th><%= user.name %></th>
-				</tr>
-				<tr>
-					<th>Follows</th>
-					<th><%= link_to "#{user.follower.count}", follows_path(user) %></th>
-				</tr>
-				<tr>
-					<th>Followers</th>
-					<th><%= link_to "#{user.followed.count}", followers_path(user) %></th>
-				</tr>
-		</table>
+<table class="table">
+		<tr>
+			<%= link_to user_path(current_user) do%>
+			<%= attachment_image_tag(user, :profile_image, fallback: "no_image.jpg", class:"profile" ) %>
+			<% end %>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<th><%= user.name %></th>
+		</tr>
+		<tr>
+			<th>Follows</th>
+			<th><%= link_to "#{user.follower.count}", follows_path(user) %></th>
+		</tr>
+		<tr>
+			<th>Followers</th>
+			<th><%= link_to "#{user.followed.count}", followers_path(user) %></th>
+		</tr>
+</table>
 
-		<div class="row">
-		<% if user == current_user %>
-			<%= link_to edit_user_path(user), class: "col-xs-12, #{user.id}" do%>
-			<i class="far fa-edit"></i>
-			<% end %>
-		<% end %>
-		<% if user != current_user %>
-			<% if current_user.following?(user) %>
-			<%= link_to 'Un follow', unfollow_path(user.id), method: :POST,class: "col-xs-5 btn btn-primary"  %>
-			<% else %>
-			<%= link_to 'To follow', follow_path(user.id), method: :POST,class: "col-xs-5 btn btn-success"  %>
-			<% end %>
-		<% end %>
-		</div>
+<div class="row">
+<% if user == current_user %>
+	<%= link_to edit_user_path(user), class: "col-xs-12, #{user.id}" do%>
+	<i class="far fa-edit"></i>
+	<% end %>
+<% end %>
+<% if user != current_user %>
+	<% if current_user.following?(user) %>
+	<%= link_to 'Un follow', unfollow_path(user.id), method: :POST,class: "col-xs-5 btn btn-primary"  %>
+	<% else %>
+	<%= link_to 'To follow', follow_path(user.id), method: :POST,class: "col-xs-5 btn btn-success"  %>
+	<% end %>
+<% end %>
+</div>
