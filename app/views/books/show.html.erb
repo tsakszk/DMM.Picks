@@ -19,7 +19,7 @@
 		<!--同コントローラーのviewで表示ならusersは省略可 -->
 		<div class="new_book">
 		<h2>New book</h2>
-		<%= render 'books/newform', book: @book %>
+		<%= render 'books/newform', book: @newbook %>
 		</div>
 	</div>
 
@@ -31,7 +31,7 @@
 				<%= attachment_image_tag @book, :image,fallback: "no-image-mini.jpg" %>
 				</td>
 				<td class="book_title"><%= link_to @book.title, @book %></td>
-				<td class="book_comment"><%= @book.body %></td>
+				<td class="user_book_comment"><%= @book.body %></td>
 				<td class="favorites">
 					<% if @book.favorited_by?(current_user) %>
 						<%= link_to book_favorites_path(@book), method: :delete do %>

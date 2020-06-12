@@ -6,7 +6,10 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> <%#消さない%>
+    <%# <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> %>
   </head>
 
   <body>
@@ -55,7 +58,7 @@
     </header>
     <div class="container-fluid ">
       <div class="row">
-          <br>
+      <br>
         <div class="main-visual">
             <div class="form">
               <%= form_tag(searches_search_path,:method => 'get') do %>
@@ -73,11 +76,22 @@
         </div>
       </div>
     </div>
-
       <!--フラッシュメッセージの記述-->
       <div class="container-fluid ">
         <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
       </div>
   </body>
       <%= yield %>
+<%#=begin
+<div class="container-fluid ">
+  <div class="row">
+  <br>
+    <div class="slider">
+      <%= image_tag 'header2'%>
+      <%# <%= image_tag 'header5'%>
+      <%# <div class="b"><img class="s" src="assets/header2.png"></div> %>
+      <%# <div class="b"><img class="s" src="assets/header5.png"></div> %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
 </html>

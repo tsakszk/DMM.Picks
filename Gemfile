@@ -4,8 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.7'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.4.1'
-gem "jquery-rails" #bxslider-rails(スライドショー)をrails5で使うにはこれを入れないと動かない
+gem "jquery-rails"
 gem "jquery-ui-rails"
+gem 'jquery-turbolinks'
 # kaminari
 gem 'kaminari', '~> 1.2.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
@@ -86,3 +87,4 @@ group :production do
 end
 
 gem 'font-awesome-sass', '~> 5.4.1'
+
