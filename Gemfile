@@ -88,3 +88,6 @@ end
 
 gem 'font-awesome-sass', '~> 5.4.1'
 
+gem 'dotenv-rails'
+
+gem 'google-cloud-vision', require: false
