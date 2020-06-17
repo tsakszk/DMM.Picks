@@ -30,6 +30,12 @@
 				<td>
 				<%= attachment_image_tag @book, :image,fallback: "no-image-mini.jpg" %>
 				</td>
+				<td>
+				<td>
+				<%# <% @book.tags.each do |tag| %> %>
+					<%# <%= tag.name ,class="label label-primary"%> %>
+				<%# <% end %> %>
+				</td>
 				<td class="book_title"><%= link_to @book.title, @book %></td>
 				<td class="user_book_comment"><%= @book.body %></td>
 				<td class="favorites">
