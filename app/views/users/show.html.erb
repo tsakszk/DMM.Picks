@@ -18,7 +18,6 @@
 			<thead>
 				<tr>
 					<th>Books</th>
-					<th>Tag</th>
 					<th>Title</th>
 					<th>Opinion</th>
 				</tr>
@@ -30,11 +29,6 @@
 						<%= link_to book, class: "book_#{book.id}" do %>
 						<%= attachment_image_tag book, :image, fallback: "no-image-mini.jpg" %>
 						<% end %>
-					</td>
-					<td>
-						<%# <% @book.tags.each do |tag| %> %>
-							<%# <%= tag.name ,class="label label-primary"%> %>
-						<%# <% end %> %>
 					</td>
 					<td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
 					<td class="book_comment"><%= book.body %></td>

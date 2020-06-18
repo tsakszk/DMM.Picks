@@ -27,31 +27,39 @@
 		<h2>Book detail</h2>
 		<table class="table table-hover table-inverse">
 			<tr>
+				<th>Books</th>
+				<th></th>
+				<th>Tags</th>
+				<th class="book_title">Title</th>
+				<th class="user_book_comment">Opinion</th>
+				<th><i class="fa fa-heart" aria-hidden="true"></i></th>
+				<th><i class="far fa-comment-dots"></i></th>
+				<th></th>
+				<th></th>
+			<tr>
 				<td>
 				<%= attachment_image_tag @book, :image,fallback: "no-image-mini.jpg" %>
 				</td>
 				<td>
-				<td>
-				<%# <% @book.tags.each do |tag| %> %>
-					<%# <%= tag.name ,class="label label-primary"%> %>
-				<%# <% end %> %>
+				<td class="tags">
+				<% @book.tags.each do |tag| %>
+					<span class="label label-primary"><%= tag.name %></span>
+				<% end %>
 				</td>
 				<td class="book_title"><%= link_to @book.title, @book %></td>
-				<td class="user_book_comment"><%= @book.body %></td>
+				<td class="user_opinion"><%= @book.body %></td>
 				<td class="favorites">
 					<% if @book.favorited_by?(current_user) %>
 						<%= link_to book_favorites_path(@book), method: :delete do %>
-						<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
 						<%= @book.favorites.count %>
 						<% end %>
 					<% else %>
 						<%= link_to book_favorites_path(@book), method: :post do %>
-						<i class="fa fa-heart" aria-hidden="true"></i>
 						<%= @book.favorites.count %>
 						<% end %>
 					<% end %>
 				</td>
-				<td class="favorites_comment"><%= "#{@book.book_comments.count}" %><i class="far fa-comment-dots"></i></td>
+				<td class="favorites_comment"><%= "#{@book.book_comments.count}" %></td>
 				</>
 				<% if @book.user_id == current_user.id %>
 				<td><%= link_to "Edit",edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>

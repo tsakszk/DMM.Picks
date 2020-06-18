@@ -7,6 +7,7 @@ class Book < ApplicationRecord
 	validates :body, presence: true, length: {maximum: 2000}
 	has_many :book_comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+	has_many :tags, dependent: :destroy
 	attachment :profile_image, destroy: false
 	attachment :image, destroy: false
 	def favorited_by?(user)
