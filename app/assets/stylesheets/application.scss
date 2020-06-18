@@ -61,9 +61,13 @@ body {
     white-space: nowrap;
 }
 
-.user_book_comment {
+.user_opinion {
 	word-break: break-all;  //投稿記事に対する文の改行
 	width: 40%;
+	max-width: 200px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
 }
 
 .actions {
@@ -74,6 +78,12 @@ body {
 	margin: 0 10px -1px 0;
 	padding: 10px 20px;
 	list-style: none;
+}
+
+.tags {
+	// overflow: visible;
+    text-overflow: ellipsis;
+    white-space: pre-line;
 }
 
 input[type="password"] { //deviseのフォームの幅調整
