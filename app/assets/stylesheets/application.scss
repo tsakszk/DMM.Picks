@@ -54,20 +54,38 @@ body {
 
 .book_comment {
 	word-break: break-all;  //投稿記事に対する文の改行
-	width: 40%;
-	max-width: 300px;
-	overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.user_opinion {
-	word-break: break-all;  //投稿記事に対する文の改行
-	width: 40%;
+	width: 50%;
 	max-width: 200px;
 	overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre-line;
+}
+
+.user_opinion {
+	word-break: break-all;  //投稿記事に対する文の改行
+	width: 50%;
+	max-width: 200px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+}
+
+.book_body {
+	word-break: break-all;  //投稿記事に対する文の改行
+	width: 50%;
+	max-width: 200px;
+	text-overflow: ellipsis;
+	overflow: auto;
+    white-space: nowrap;
+}
+
+.comment-score {
+	text-align:center;
+	background-color:#F8F2DA;
+}
+.AI_score {
+	text-align:center;
+	background-color:#F8F2DA;
 }
 
 .actions {
