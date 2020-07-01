@@ -1,58 +1,60 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user! #
-	before_action :correct_user, only: [:edit] #
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit]
   def show
-  	@user = User.find(params[:id])
-  	@books = @user.books
-	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
+    @user = User.find(params[:id])
+    @books = @user.books
+    @book = Book.new # new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
   end
 
   def index
-	@user = current_user
-  	# @users = User.all #一覧表示するためにUserモデルのデータを全て変数に入れて取り出す。
-	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
-	@users = User.all.page(params[:page]).per(7).order(created_at: :desc) #:asc古い :desc新しい
-	@all_user_ranks = User.find(Favorite.group(:user_id).order('count(user_id) desc').limit(5).pluck(:user_id))
-	@all_book_ranks = Book.find(Favorite.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id))
+    @user = current_user
+    # @users = User.all #一覧表示するためにUserモデルのデータを全て変数に入れて取り出す。
+    @book = Book.new # new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
+    @users = User.all.page(params[:page]).per(7).order(created_at: :desc) #:asc古い :desc新しい
+    @all_user_ranks = User.find(Favorite.group(:user_id).order('count(user_id) desc').limit(5).pluck(:user_id))
+    @all_book_ranks = Book.find(Favorite.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id))
   end
 
   def edit
-	@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-  	@user = User.find(current_user.id)
-  	if @user.update(user_params)
-  		redirect_to user_path(@user), notice: "successfully updated user!"
-	else
-  		render :edit
-  	end
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "successfully updated user!"
+    else
+      render :edit
+    end
   end
 
   def follows
-	@users = User.all
+    @users = User.all
   end
 
   def followers
-	@users = User.all
+    @users = User.all
   end
 
   private
+
   def user_params
-  	params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
-  #url直接防止 メソッドを自己定義してbefore_actionで発動。
-   def baria_user
-  	unless params[:id].to_i == current_user.id
-  		redirect_to user_path(current_user)
-  	end
-   end
-   def correct_user
-	user = User.find(params[:id])
-	if user != current_user
-		redirect_to user_path(current_user)
-		flash[:notice] = "error"
-	end
-   end
+  # url直接防止 メソッドを自己定義してbefore_actionで発動。
+  def baria_user
+    unless params[:id].to_i == current_user.id
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def correct_user
+    user = User.find(params[:id])
+    if user != current_user
+      redirect_to user_path(current_user)
+      flash[:notice] = "error"
+    end
+  end
 end

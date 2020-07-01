@@ -11,14 +11,14 @@ module Vision
       params = {
         requests: [{
           image: {
-            content: base64_image
+            content: base64_image,
           },
           features: [
             {
-              type: 'LABEL_DETECTION'
-            }
-          ]
-        }]
+              type: 'LABEL_DETECTION',
+            },
+          ],
+        }],
       }.to_json
       # Google Cloud Vision APIにリクエスト
       uri = URI.parse(api_url)
@@ -38,8 +38,8 @@ module Vision
       params = {
         document: {
           type: 'PLAIN_TEXT',
-          content: text
-        }
+          content: text,
+        },
       }.to_json
       # Google Cloud Natural Language APIにリクエスト
       uri = URI.parse(api_url)

@@ -50,7 +50,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'spring-commands-rspec' #Spring を使った RSpec の導入
+  gem 'spring-commands-rspec' # Spring を使った RSpec の導入
 end
 
 group :development do
@@ -60,7 +60,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop-airbnb' # Rubocop Airbnbの導入
 end
 
 group :test do
@@ -81,7 +80,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 # 環境変数,MySQL
-gem 'dotenv-rails'
+gem 'dotenv-rails' # rubocop-airbnbで怒られているところ
 group :production do
   gem 'mysql2'
 end
@@ -91,3 +90,5 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'dotenv-rails'
 
 gem 'google-cloud-vision', require: false
+
+gem 'rubocop-airbnb'
