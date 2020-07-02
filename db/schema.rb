@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_130821) do
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "score", precision: 5, scale: 3
+    t.integer "score"
   end
 
   create_table "books", force: :cascade do |t|
