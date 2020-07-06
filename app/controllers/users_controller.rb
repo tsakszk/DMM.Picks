@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @book = Book.new
-    @users = User.all.page(params[:page]).per(7).order(created_at: :desc) #:asc古い :desc新しい
+    @users = User.all.page(params[:page]).per(5).order(created_at: :desc) #:asc古い :desc新しい
     @all_user_ranks = User.find(Favorite.group(:user_id).order('count(user_id) desc').limit(5).pluck(:user_id))
     @all_book_ranks = Book.find(Favorite.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id))
   end

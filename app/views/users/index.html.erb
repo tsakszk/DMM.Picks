@@ -13,52 +13,57 @@
 	</div>
 	<div class="col-md-9 col-lg-9">
 		<h2>Users</h2>
-		<!--users一覧 -->
+		<!-- users一覧 -->
 		<table class="table table-hover table-inverse">
 			<thead>
 				<tr>
-					<th>User</th>
-					<th>Name</th>
-					<th class="display1">Follows</th>
-					<th class="display2">Followers</th>
-					<th class="display3"></th>
-					<th class="display4"></th>
+				  <th>User</th>
+				  <th>Name</th>
+				  <th class="display1">Follows</th>
+				  <th class="display2">Followers</th>
+				  <th class="display3"></th>
+				  <th class="display4"></th>
 				</tr>
 			</thead>
+
 			<tbody>
 				<% @users.each do |user| %>
-				<tr>
-					<td><%= link_to user, class: "user_#{user.id}" do%>
+				  <tr>
+					<td>
+					  <%= link_to user, class: "user_#{user.id}" do%>
 					    <%= attachment_image_tag(user, :profile_image, fallback: "no-image-mini.jpg") %>
-                        <% end %>
+                      <% end %>
 					</td>
-					<td><%= link_to user, class: "user_#{user.id}" do%>
+					<td>
+					  <%= link_to user, class: "user_#{user.id}" do%>
 					    <%= user.name%>
-						<% end %>
-						</td>
+					  <% end %>
+					</td>
 					<td><%= " #{user.follower.count}" %></td>
 					<td><%= " #{user.followed.count}" %></td>
 					<td class="display3">
-					<% if user.id != current_user.id %>
+					  <% if user.id != current_user.id %>
 						<% if current_user.following?(user) %>
-						 <%= link_to 'Un follow', unfollow_path(user.id), method: :post %>
+						  <%= link_to 'Un follow', unfollow_path(user.id), method: :post %>
 						<% else %>
-						 <%= link_to 'To follow', follow_path(user.id), method: :post %>
-						 <i class="fa fa-heart" aria-hidden="true" style="color: green;"></i>
-
+						  <%= link_to 'To follow', follow_path(user.id), method: :post %>
+						   <i class="fa fa-heart" aria-hidden="true" style="color: green;"></i>
 						<% end %>
-					<% end %>
+					  <% end %>
 					</td>
 					<td class="display4"><%= link_to "Show", user, class: "user_#{user.id}" %></td>
-				</tr>
+				  </tr>
 				<% end %>
 			</tbody>
 		</table>
+
+		<!-- ページネーション -->
+        <div class= "text-center" >
+		  <%= paginate @users %>
+	    </div>
 	</div>
   </div>
 </div>
 
-<!--user ページネーション  -->
-<div class="text-center"><%= paginate @users %></div>
-
+<!--ランキング-->
 <%= render 'searches/ranking', user: current_user %>

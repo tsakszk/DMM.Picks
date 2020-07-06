@@ -1,3 +1,4 @@
+<!-- 本の投稿 -->
 <%= form_for(book) do |f| %>
 	<div class="field row">
 		<%= f.label :title %>
@@ -5,13 +6,13 @@
 	</div>
 
 	<div class="field row">
-		<%= f.label :Opinion %> <!-- ここを変更 -->
+		<%= f.label :Opinion %>
 		<%= f.text_area :body,placeholder:"Start reading \"Date\",End of reading \"Date\"", class: "col-xs-12 book_body",
 		rows: 15, class: "form-control" %>
 	</div>
 
 	<div class="field row">
-		<%= f.label :Image %> <!-- ここを変更 -->
+		<%= f.label :Image %>
 		<%= f.attachment_field :image  %>
 	</div>
 

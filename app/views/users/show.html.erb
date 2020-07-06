@@ -1,59 +1,57 @@
+<!-- ユーザー詳細 -->
 <div class="container">
   <div class="row">
-	<div class="col-md-3 col-lg-3">
-		<div class="user_info">
-		<h2>User info</h2>
-		<%= render 'users/profile', user: current_user %>
-		</div>
-		<!--同コントローラーのviewで表示ならusersは省略可 -->
-		<div class="new_book">
+    <div class="col-md-3 col-lg-3">
+	  <div class="user_info">
+	    <h2>User info</h2>
+		  <%= render 'users/profile', user: current_user %>
+	  </div>
+	  <div class="new_book">
 		<h2>New book</h2>
-		<%= render 'books/newform', book: @book %>
-		</div>
+		  <%= render 'books/newform', book: @book %>
+	  </div>
 	</div>
 	<div class="col-md-9 col-lg-9">
-	<h3><%= attachment_image_tag @user, :profile_image, fallback: "no-image-mini.jpg"%> <%= @user.name %>'s Books</h3>
-		<!--books一覧 -->
+	  <h3><%= attachment_image_tag @user, :profile_image, fallback: "no-image-mini.jpg"%> <%= @user.name %>'s Books</h3>
 		<table class="table table-hover table-inverse">
-			<thead>
-				<tr>
-					<th>Books</th>
-					<th>Title</th>
-					<th>Opinion</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @books.order(created_at: :desc).each do |book| %>
-				<tr>
-					<td>
-						<%= link_to book, class: "book_#{book.id}" do %>
-						<%= attachment_image_tag book, :image, fallback: "no-image-mini.jpg" %>
-						<% end %>
-					</td>
-					<td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
-					<td class="book_body"><%= book.body %></td>
-					<td class="display3">
-						<% if book.favorited_by?(current_user) %>
-							<%= link_to book_favorites_path(book), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style="color: green;"></i>
-							<%= book.favorites.count %>
-							<% end %>
-						<% else %>
-							<%= link_to book_favorites_path(book), method: :post do %>
-							<i class="fa fa-heart" aria-hidden="true"></i>
-							<%= book.favorites.count %>
-							<% end %>
-						<% end %>
-					</td>
-					<td class="display4"><%= "#{book.book_comments.count} " %>
-					<i class="far fa-comment-dots"></i>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
+		  <thead>
+			  <tr>
+				<th>Books</th>
+				<th>Title</th>
+				<th>Opinion</th>
+			  </tr>
+		  </thead>
+		  <tbody>
+			<% @books.order(created_at: :desc).each do |book| %>
+			  <tr>
+				<td>
+				  <%= link_to book, class: "book_#{book.id}" do %>
+				    <%= attachment_image_tag book, :image, fallback: "no-image-mini.jpg" %>
+				  <% end %>
+				</td>
+				<td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
+				<td class="book_body"><%= book.body %></td>
+				<td class="display3">
+				  <% if book.favorited_by?(current_user) %>
+					<%= link_to book_favorites_path(book), method: :delete do %>
+					<i class="fa fa-heart" aria-hidden="true" style="color: green;"></i>
+					<%= book.favorites.count %>
+				    <% end %>
+				  <% else %>
+					<%= link_to book_favorites_path(book), method: :post do %>
+					<i class="fa fa-heart" aria-hidden="true"></i>
+					<%= book.favorites.count %>
+					<% end %>
+				  <% end %>
+				</td>
+				  <td class="display4"><%= "#{book.book_comments.count} " %>
+				  <i class="far fa-comment-dots"></i>
+				  </td>
+			  </tr>
+			<% end %>
+		  </tbody>
 		</table>
 	</div>
   </div>
 </div>
-<!--books一覧 -->
 
